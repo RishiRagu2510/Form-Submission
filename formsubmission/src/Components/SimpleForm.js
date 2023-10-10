@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
-
+import {useState} from 'react';
 const SimpleForm = () => {
-    const[input,setInput]=useState('');
+  const [message, setMessage] = useState('');
+  const handleChange = event => {
+    setMessage(event.target.value);
+
+    console.log('value is:', event.target.value);
+  };
   return (
     <div>
-    
-    <form action={console.log(input)}>
-    <label id='username'>Enter the UserName
-    <input type='text'></input></label>
-    <br></br>
-    <label id='password'>Enter the Password
-    <input type='password'></input></label>
-    </form>
-    <br></br>
-    <button onClick={(e)=>setInput(alert("form Submitted"))}>Submit</button>
+      <input
+        type="text"
+        id="message"
+        name="message"
+        onChange={handleChange}
 
+      />
+      <h2>Message: {message}</h2>
     </div>
-  )
-}
+  );
+};
 
 export default SimpleForm;
